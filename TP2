@@ -1,0 +1,180 @@
+--Loadstring
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "Gud Hub | [❄️FROST!] ⚡ Tapping Legends X",
+	LoadingTitle = "Gud Hub | [❄️FROST!] ⚡ Tapping Legends X",
+	LoadingSubtitle = "By UnknownL",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = GudHub, -- Create a custom folder for your hub/game
+		FileName = "Gub Hub"
+	},
+        Discord = {
+        	Enabled = true,
+        	Invite = "D57E4maA", -- The Discord invite code, do not include discord.gg/
+        	RememberJoins = false -- Set this to false to make them join the discord every time they load it up
+        },
+	KeySystem = true, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Gud Hub",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/D57E4maA)",
+		FileName = "GudKey",
+		SaveKey = true,
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = "1234"
+	}
+})
+
+--Values
+_G.autoClick = true
+_G.autoRebirth = true
+_G.autoHatch = true
+_G.selectEgg = Basic
+_G.autoEquip = true
+
+-- Function
+function autoClick()
+    while _G.autoClick == true do
+        game:GetService("ReplicatedStorage").Remotes.Tap:FireServer()
+    wait(.000000000000000000000000000000000000000000001)
+    end
+end
+
+function autoRebirth()
+    while _G.autoRebirth == true do
+        game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer(1)
+    wait(.000000000000000000000000000000000000000000001)
+    end
+end
+
+function autoHatch()
+    while _G.autoHatch == true do
+    game:GetService("ReplicatedStorage").Remotes.BuyEgg:InvokeServer("Basic Egg",1)
+    game:GetService("ReplicatedStorage").Remotes.BuyEgg:InvokeServer("Rare Egg",1)
+    wait(.000000000000000000000000000000000000000000001)
+    end
+end
+
+function autoEquip()
+    while _G.autoEquip ==  true do
+        game:GetService("ReplicatedStorage").Remotes.UnequipAll:InvokeServer()
+    game:GetService("ReplicatedStorage").Remotes.EquipBest:InvokeServer()
+    wait(500)
+    end
+end
+
+--Tabs
+local FarmTab = Window:CreateTab("Auto Farm", 4483362458) -- Title, Image
+local HatchTab = Window:CreateTab("Eggs/Hatch", 4483362458) -- Title, Image
+local PlayerTab = Window:CreateTab("Player", 4483362458) -- Title, Image
+local MiscTab = Window:CreateTab("Misc", 4483362458) -- Title, Image
+
+
+-- Toggles
+local Toggle = FarmTab:CreateToggle({
+	Name = "Auto Click",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.autoClick = Value
+        autoClick()
+	end,
+})
+
+local Toggle = FarmTab:CreateToggle({
+	Name = "Auto Rebirth",
+	CurrentValue = false,
+	Flag = "Toggle2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.autoRebirth = Value
+        autoRebirth()
+	end,
+})
+
+local Toggle = HatchTab:CreateToggle({
+	Name = "Auto Hatch Eggs Choosed",
+	CurrentValue = false,
+	Flag = "Toggle3", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.autoHatch = Value
+        autoHatch()
+	end,
+})
+
+local Toggle = MiscTab:CreateToggle({
+	Name = "Auto Equip Best Pet",
+	CurrentValue = false,
+	Flag = "Toggle4", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.autoEquip = Value
+        autoEquip()
+	end,
+})
+
+local Toggle = MiscTab:CreateToggle({
+	Name = "Auto Equip Best Pet",
+	CurrentValue = false,
+	Flag = "Toggle4", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.autoEquip = Value
+        autoEquip()
+	end,
+})
+-- Dropdowns
+local Dropdown = HatchTab:CreateDropdown({
+	Name = "Choose Egg To Hatch",
+	Options = {"Basic Eggs","Rare Eggs"},
+	CurrentOption = "Option 1",
+	Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Option)
+	  	  _G.selectEgg = Option
+          print(_G.selectEgg)
+	end,
+})
+-- Adaptives Input
+local Input = HatchTab:CreateInput({
+	Name = "Notice :",
+	PlaceholderText = "You Must Near The Hatch Place To Hatch Eggs",
+	RemoveTextAfterFocusLost = false,
+	Callback = function(Text)
+		-- The function that takes place when the input is changed
+    		-- The variable (Text) is a string for the value in the text box
+	end,
+})
+
+-- Notifier
+Rayfield:Notify({
+    Title = "Dont Foget To Join My Discord",
+    Content = "Dont Foget To Join My Discord | Link : discord.gg/D57E4maA",
+    Duration = 1,
+    Image = 4483362458,
+    Actions = { -- Notification Buttons
+        Ignore = {
+            Name = "Okay!",
+            Callback = function()
+                print("The user tapped Okay!")
+            end
+		},
+	},
+})
+
+-- Sections
+-- Sliders
+local Slider = PlayerTab:CreateSlider({
+	Name = "Walk Speed",
+	Range = {0, 300},
+	Increment = 10,
+	Suffix = "Speed !!!",
+	CurrentValue = 10,
+	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+       
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+	end,
+})
+
+
+
+
+
