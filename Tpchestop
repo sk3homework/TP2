@@ -190,6 +190,48 @@ function thisCode()
 
         end
 
+        local CoreGui = game:GetService("StarterGui")
+
+        CoreGui:SetCore("SendNotification", {
+
+            Title = "Auto TP Chests",
+
+            Text = "On Or Off Auto Farm Chest",
+
+            Duration = math.huge,
+
+            Callback = AllowRunServiceBind,
+
+            Button1 = "On",
+
+            Button2 = "Off",
+
+        })
+
+    end
+
+
+
+    local CoreGui = game:GetService("StarterGui")
+
+    CoreGui:SetCore("SendNotification", {
+
+        Title = "Auto TP Chests",
+
+        Text = "On Or Off Auto Farm Chest",
+
+        Duration = math.huge,
+
+        Callback = AllowRunServiceBind,
+
+        Button1 = "On",
+
+        Button2 = "Off",
+
+    })
+
+    
+
     task.spawn(function()
 
         while true do
