@@ -216,17 +216,17 @@ function thisCode()
 
     CoreGui:SetCore("SendNotification", {
 
-        Title = "Farm rương by npt Scripts ",
+        Title = "Auto TP Chests",
 
-        Text = "Tắt/Bật ChestFarm",
+        Text = "Turn On/Off",
 
         Duration = math.huge,
 
         Callback = AllowRunServiceBind,
 
-        Button1 = "Bật",
+        Button1 = "On",
 
-        Button2 = "Tắt",
+        Button2 = "Off",
 
     })
 
