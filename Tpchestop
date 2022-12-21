@@ -194,17 +194,17 @@ function thisCode()
 
         CoreGui:SetCore("SendNotification", {
 
-            Title = "Auto TP Chests",
+            Title = "ChestFarm",
 
-            Text = "On Or Off Auto Farm Chest",
+            Text = "Enable/Disable ChestFarm",
 
             Duration = math.huge,
 
             Callback = AllowRunServiceBind,
 
-            Button1 = "On",
+            Button1 = "Bật",
 
-            Button2 = "Off",
+            Button2 = "Tắt",
 
         })
 
@@ -216,17 +216,17 @@ function thisCode()
 
     CoreGui:SetCore("SendNotification", {
 
-        Title = "Auto TP Chests",
+        Title = "Farm rương by npt Scripts ",
 
-        Text = "On Or Off Auto Farm Chest",
+        Text = "Tắt/Bật ChestFarm",
 
         Duration = math.huge,
 
         Callback = AllowRunServiceBind,
 
-        Button1 = "On",
+        Button1 = "Bật",
 
-        Button2 = "Off",
+        Button2 = "Tắt",
 
     })
 
